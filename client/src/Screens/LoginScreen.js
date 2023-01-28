@@ -9,7 +9,7 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
 } from "react-native";
-import { Icon } from "react-native-elements";
+import { AntDesign } from "@expo/vector-icons";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
@@ -35,11 +35,12 @@ const LoginScreen = ({ navigation }) => {
       }}
     >
       <View style={styles.container}>
-        <Text style={styles.welcomeText}>Welcome Back!</Text>
-        <Text style={styles.loginText}>Login</Text>
+        {/* <Text style={styles.welcomeText}>Welcome Back!</Text> */}
+        <Text style={styles.loginText}>Sign In</Text>
+        <Text style={styles.text}>Email</Text>
         <TextInput
-          placeholder="Email Address"
-          placeholderTextColor="#808e9b"
+          // placeholder="Email Address"
+          placeholderTextColor="#fff"
           style={styles.input}
           autoCorrect={true}
           autoCapitalize={false}
@@ -51,9 +52,12 @@ const LoginScreen = ({ navigation }) => {
             setEmail(text);
           }}
         />
+        <View style={styles.line}></View>
+        <Text style={styles.text}>Password</Text>
+
         <TextInput
-          placeholder="Password"
-          placeholderTextColor="#808e9b"
+          // placeholder="Password"
+          // placeholderTextColor="#fff"
           style={styles.input}
           secureTextEntry={true}
           textContentType="password"
@@ -62,6 +66,8 @@ const LoginScreen = ({ navigation }) => {
             setPassword(text);
           }}
         />
+        <View style={styles.line}></View>
+
         <TouchableOpacity>
           <Text style={styles.fpText}>Forgot Password?</Text>
         </TouchableOpacity>
@@ -71,29 +77,19 @@ const LoginScreen = ({ navigation }) => {
         {errorMessage ? (
           <Text style={{ color: "red" }}>{errorMessage}</Text>
         ) : null}
-        {/* Loginwith */}
-        <View style={styles.loginWithBar}>
-          <TouchableOpacity style={styles.iconButton}>
-            <Icon name="google" type="font-awesome" size={30} color="#808e9b" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.iconButton}>
-            <Icon
-              name="facebook-square"
-              type="font-awesome"
-              size={30}
-              color="#808e9b"
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.iconButton}>
-            <Icon name="apple" type="font-awesome" size={30} color="#808e9b" />
-          </TouchableOpacity>
-        </View>
+
         <View style={styles.signUpTextView}>
           <Text style={styles.signUpText}>Don't have an account?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            style={styles.signUpBtn}
+            onPress={() => {
+              navigation.navigate("Register");
+            }}
+          >
             <Text style={[styles.signUpText, { color: "#C9DFFF" }]}>
-              {" Sign Up"}
+              {" Sign up"}
             </Text>
+            <AntDesign name="right" style={styles.arrow} />
           </TouchableOpacity>
         </View>
       </View>
@@ -109,28 +105,36 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#333",
   },
-  welcomeText: {
-    fontSize: 30,
-    fontWeight: "900",
-    color: "#fff",
+  text: {
+    alignSelf: "flex-start",
+    color: "#C9DFFF",
+    fontSize: 16,
+    fontWeight: "400",
+    paddingHorizontal: 10,
+  },
+  line: {
+    width: 350,
+    height: 1,
     alignSelf: "center",
+    marginBottom: 20,
+    backgroundColor: "#fff",
   },
   loginText: {
     color: "#fff",
-    fontSize: 28,
+    fontSize: 30,
     fontWeight: "bold",
     marginTop: 20,
-    marginBottom: 10,
+    marginBottom: 80,
+    alignSelf: "center",
   },
   input: {
     width: "100%",
-    height: 50,
-    backgroundColor: "#F0F4FA",
+    height: 30,
+    // backgroundColor: "#F0F4FA",
     borderRadius: 6,
-    marginTop: 10,
     paddingHorizontal: 10,
     fontSize: 16,
-    color: "#808e9b",
+    color: "#fff",
   },
   fpText: {
     alignSelf: "flex-end",
@@ -140,10 +144,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   loginButton: {
-    backgroundColor: "black",
+    alignSelf: "center",
+    backgroundColor: "#111",
     paddingVertical: 12,
-    borderRadius: 6,
-    marginTop: 20,
+    borderRadius: 5,
+    marginTop: 50,
+    width: 200,
   },
   loginButtonText: {
     fontSize: 20,
@@ -151,27 +157,27 @@ const styles = StyleSheet.create({
     color: "#C9DFFF",
     alignSelf: "center",
   },
-  loginWithBar: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 50,
-  },
-  iconButton: {
-    backgroundColor: "#C9DFFF",
-    padding: 14,
-    marginHorizontal: 10,
-    borderRadius: 100,
-  },
+
   signUpTextView: {
     marginTop: 40,
     display: "flex",
-    flexDirection: "row",
     justifyContent: "center",
+    alignItems: "flex-start",
+    paddingHorizontal: 10,
   },
   signUpText: {
     color: "#fff",
-    fontSize: 20,
-    fontWeight: "500",
+    fontSize: 18,
+    fontWeight: "400",
+  },
+  signUpBtn: {
+    paddingVertical: 10,
+    flexDirection: "row",
+  },
+  arrow: {
+    fontSize: 14,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    color: "#C9DFFF",
   },
 });
