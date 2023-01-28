@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-const Register = ({ navigation }) => {
+const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [regNo, setRegNo] = useState("");
@@ -205,4 +205,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Register;
+export default RegisterScreen;
