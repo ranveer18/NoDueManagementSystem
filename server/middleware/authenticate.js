@@ -1,12 +1,13 @@
 const jwt = require("jsonwebtoken");
-const { studentRegister, AdminstrationRegister } = require("../models/models");
+require("dotenv").config();
+const studentRegister = require("../models/studentModels");
 
 const Authenticate = async (req, res, next) => {
   try {
     const token = req.cookie.jwtoken;
+    console.log(token);
     const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
-
-    const rootUser = await AdminstrationRegister.findOne({
+    const rootUser = await studentRegister.findOne({
       _id: verifyToken._id,
       "tokens.token": token,
     });
