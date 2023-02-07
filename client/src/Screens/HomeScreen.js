@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import MenuBar from "../Component/MenuBar";
-
+import StudentList from "../Component/studentList";
 const HomeScreen = (props) => {
   const description =
     "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. ";
@@ -9,15 +9,7 @@ const HomeScreen = (props) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.homeTop}>
-        <Image
-          style={styles.headerImage}
-          resizeMode="contain"
-          source={require("../../myAssets/Home.jpg")}
-        />
-
-        <Text style={styles.mainHeader}>Welcome to Vasooli System App</Text>
-
-        <Text style={styles.paraStyle}>{description} </Text>
+        <StudentList />
       </View>
 
       <View style={styles.menuStyle}>
@@ -29,18 +21,17 @@ const HomeScreen = (props) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
+    display: "flex",
     height: "100%",
     display: "flex",
     justifyContent: "space-between",
-    // paddingHorizontal: 20,
     backgroundColor: "#fff",
     textAlign: "center",
   },
 
   homeTop: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    height: "90%",
     paddingHorizontal: 10,
   },
 
