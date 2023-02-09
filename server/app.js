@@ -6,13 +6,15 @@ var bodyParser = require("body-parser");
 const Authenticate = require("./middleware/authenticate");
 var cookieParser = require("cookie-parser");
 
-const studentRouter = require("./router/studentRoute");
-const authRouter = require("./router/authRoute");
+const studentRouter = require("./router/Student/studentRoute");
+const studentAuthRouter = require("./router/Student/studentAuthRoute");
+const departmentAuthRouter = require("./router/Department/departmentAuthRoute");
+const departmentRouter = require("./router/Department/departmentRoute");
 
 app.use(cookieParser());
 app.use(express.json());
-app.use("/api/v1", studentRouter);
-app.use("/api/v1", authRouter);
+app.use("/api/v1", studentRouter, departmentRouter);
+app.use("/api/v1", studentAuthRouter, departmentAuthRouter);
 app.get("/home", Authenticate, () => {
   resizeBy.send("hello");
 });

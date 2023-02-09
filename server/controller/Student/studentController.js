@@ -1,5 +1,5 @@
-require("../db/conn");
-const studentRegister = require("../models/studentModels");
+require("../../db/conn");
+const studentRegister = require("../../models/studentModels");
 
 const getAllStudents = async (req, res) => {
   const getAllStudentsData = await studentRegister.find();

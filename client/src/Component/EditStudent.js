@@ -36,6 +36,7 @@ const EditStudent = ({ route }) => {
       await axios.patch(`http://192.168.0.105:5050/api/v1/student/${id}`, {
         name,
       });
+      navigation.navigate("Home");
     } catch (error) {
       console.log(error);
     }

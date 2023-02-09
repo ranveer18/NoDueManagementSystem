@@ -3,7 +3,7 @@ const router = express.Router();
 const {
   loginRoute,
   studentRegisterRoute,
-} = require("../controller/studentAuthController");
+} = require("../../controller/Student/studentAuthController");
 
 router.route("/login/student").post(loginRoute);
 router.route("/register/Student").post(studentRegisterRoute);

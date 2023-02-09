@@ -1,8 +1,8 @@
-require("../db/conn");
+require("../../db/conn");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const studentRegister = require("../models/studentModels");
+const studentRegister = require("../../models/studentModels");
 //register student data route
 
 const studentRegisterRoute = async (req, res) => {
