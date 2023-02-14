@@ -63,7 +63,13 @@ departmentSchema.methods.generateAuthToken = async function () {
     console.log(err);
   }
 };
-
+departmentSchema.set("toJSON", {
+  transform: function (doc, ret, options) {
+    delete ret.password;
+    delete ret.cpassword;
+    return ret;
+  },
+});
 const departmentRegister = new mongoose.model(
   "departmentRegister",
   departmentSchema

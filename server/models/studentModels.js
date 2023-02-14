@@ -64,6 +64,14 @@ studentSchema.methods.generateAuthToken = async function () {
     console.log(err);
   }
 };
+
+studentSchema.set("toJSON", {
+  transform: function (doc, ret, options) {
+    delete ret.password;
+    delete ret.cpassword;
+    return ret;
+  },
+});
 const studentRegister = new mongoose.model("studentRegister", studentSchema);
 
 module.exports = studentRegister;

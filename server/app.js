@@ -15,9 +15,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/api/v1", studentRouter, departmentRouter);
 app.use("/api/v1", studentAuthRouter, departmentAuthRouter);
-app.get("/home", Authenticate, () => {
-  resizeBy.send("hello");
-});
+
 const port = process.env.PORT || 5000;
 const start = async () => {
   try {
