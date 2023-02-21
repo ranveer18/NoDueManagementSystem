@@ -37,6 +37,12 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  verificationToken: String,
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
+  verified: Date,
   tokens: [
     {
       token: {
