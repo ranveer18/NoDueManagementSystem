@@ -1,13 +1,14 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const studentRegister = require("../models/studentModels");
+// const studentRegister = require("../models/studentModels");
+const departmentRegister = require("../models/departmentModels");
 
 const Authenticate = async (req, res, next) => {
   try {
-    const token = req.cookie.jwtoken;
+    const token = req.cookies.jwtoken;
     console.log(token);
     const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
-    const rootUser = await studentRegister.findOne({
+    const rootUser = await departmentRegister.findOne({
       _id: verifyToken._id,
       "tokens.token": token,
     });
@@ -20,7 +21,6 @@ const Authenticate = async (req, res, next) => {
     next();
   } catch (err) {
     res.status(401).send("Unauthorized:no token provided");
-    console.log(err);
   }
 };
 

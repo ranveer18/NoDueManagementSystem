@@ -6,10 +6,6 @@ const departmentRegister = require("../models/departmentModels");
 
 const logout = async (req, res) => {
   try {
-    // console.log(req.user);
-    // req.user.tokens = req.user.tokens.filter((currElement) => {
-    //   return currElement.token !== req.token;
-    // });
     await res.clearCookie("jwtoken", { path: "/" });
     // await req.user.save();
     res.status(200).send("Logout Successfully");
@@ -18,7 +14,7 @@ const logout = async (req, res) => {
   }
 };
 
-const about = async (req, res) => {
+const admin = async (req, res) => {
   try {
     await res.send(req.rootUser);
   } catch (error) {
@@ -26,4 +22,4 @@ const about = async (req, res) => {
   }
 };
 
-module.exports = { logout, about };
+module.exports = { logout, admin };

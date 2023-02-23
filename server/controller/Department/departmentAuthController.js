@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const departmentRegister = require("../../models/departmentModels");
 const sendVerificationEmail = require("../../utils/sendverificationEmail");
-const { error, log } = require("console");
 //register student data route
 
 const departmentRegisterRoute = async (req, res) => {
@@ -95,11 +94,9 @@ const departmentLoginRoute = async (req, res) => {
     return res.status(400).json({ error: "Enter valid data" });
   }
   const userLogin = await departmentRegister.findOne({ email: email });
-  // console.log(userLogin);
   if (userLogin) {
     const isMatch = await bcrypt.compare(password, userLogin.password);
     const token = await userLogin.generateAuthToken();
-    console.log(token);
     res.cookie("jwtoken", token, {
       expires: new Date(Date.now() + 500000),
       httpOnly: true,

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+
+/* CSS Variables */
+:root {
+
+  /* Colors */
+
+  --bg-color: #D9D9D9;
+  --input-bg-color: #F0F4FA;
+  --border-color: #C9DFFF;
+  --white: #ffffff;
+  --black: #333333;
+  --font-color: #000000;
+  --text-color: #757575;
+  --linear-gradient: linear-gradient(90deg, #000000 0%, #434343 100%);
+
+  /*Inputs Box */
+
+  --input-height: 4.5rem;
+  --input-width: 30rem;
+  --btn-height: 8.2rem;
+  --btn-width: 23.5rem;
+  --form-btn-height: 4.5rem;
+  --form-btn-width: 30rem;
+  --border-radius: 0.5rem;
+
+  /* Fonts */
+
+  --large-font: 2.4rem;
+  --medium-font: 1.6rem;
+  --small-font: 1.2rem;
+  --font-bold: 700;
+  --font-medium: 400;
+  --body-font: 'Poppins', sans-serif;
+}
+
+/* Media Query */

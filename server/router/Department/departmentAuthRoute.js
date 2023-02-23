@@ -6,14 +6,14 @@ const {
   verifyEmail,
 } = require("../../controller/Department/departmentAuthController");
 
-const { logout, about } = require("../../controller/AuthRoute");
+const { logout } = require("../../controller/AuthRoute");
 
 router.route("/login/department").post(departmentLoginRoute);
 router.route("/register/department").post(departmentRegisterRoute);
 router.route("/logout").get(logout);
 router.route("/verify-email").post(verifyEmail);
 
-router.route("/about").get(about);
+// router.route("/about").get(admin);
 
 module.exports = router;
 
