@@ -6,7 +6,6 @@ const departmentRegister = require("../models/departmentModels");
 const Authenticate = async (req, res, next) => {
   try {
     const token = req.cookies.jwtoken;
-    console.log(token);
     const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
     const rootUser = await departmentRegister.findOne({
       _id: verifyToken._id,

@@ -7,6 +7,7 @@ import StudentRegister from "./StudentRegister";
 import StudentDashboard from "./StudentDashboard";
 import AdminDashboard from "./components/Admin Dashboard/AdminDashboard";
 import EditStudent from "./components/Admin Dashboard/EditStudent";
+import VerifyEmail from "./VerifyEmail";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<StudentRegister />}></Route>
           <Route path="/login" element={<StudentLogin />}></Route>
+          <Route path="/user/verify-email" element={<VerifyEmail />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
           <Route path="/dashboard" element={<StudentDashboard />}></Route>
           <Route path="/admin" element={<AdminDashboard />}></Route>

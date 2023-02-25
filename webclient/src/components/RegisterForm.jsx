@@ -1,19 +1,52 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { FaUser, FaUserGraduate, FaLock } from "react-icons/fa";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 
 const RegisterForm = () => {
   const [inputs, setInputs] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
-  const handleSubmit = (event) => {
-    alert(`Thanku ${event.target[0].value} to reach us...`);
+
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const response = await fetch("/api/v1/register/Student", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: inputs.name,
+          email: inputs.email,
+          phone: inputs.phone,
+          batch: inputs.batch,
+          branch: inputs.branch,
+          password: inputs.password,
+          cpassword: inputs.cpassword,
+          registration: inputs.registration,
+        }),
+      });
+      const data = response.json();
+      console.log(data);
+      if (data.status === 400 || !data) {
+        window.alert("invalid credentials");
+      } else if (data.status === 422) {
+        window.alert("email already exit");
+      } else {
+        window.alert("Success! Please check your email to verify account");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -23,12 +56,7 @@ const RegisterForm = () => {
             <h1 className="form_box__header_h1">Student Register</h1>
           </div>
           <div className="form_box__body">
-            <form
-              action="/register"
-              method="POST"
-              onSubmit={handleSubmit}
-              className="contact__form"
-            >
+            <form onSubmit={handleSubmit} className="contact__form">
               <div className="input__container focus">
                 <div className="icon">
                   <FaUser />
@@ -64,11 +92,53 @@ const RegisterForm = () => {
                 <input
                   required
                   type="input"
-                  name="rollno"
-                  value={inputs.rollno || ""}
+                  name="registration"
+                  value={inputs.registration || ""}
                   onChange={handleChange}
                   className="input"
                   placeholder="Registered Number"
+                />
+              </div>
+              <div className="input__container focus">
+                <div className="icon">
+                  <FaUserGraduate />
+                </div>
+                <input
+                  required
+                  type="input"
+                  name="phone"
+                  value={inputs.phone || ""}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="phone Number"
+                />
+              </div>
+              <div className="input__container focus">
+                <div className="icon">
+                  <FaUserGraduate />
+                </div>
+                <input
+                  required
+                  type="input"
+                  name="batch"
+                  value={inputs.batch || ""}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="batch"
+                />
+              </div>
+              <div className="input__container focus">
+                <div className="icon">
+                  <FaUserGraduate />
+                </div>
+                <input
+                  required
+                  type="input"
+                  name="branch"
+                  value={inputs.branch || ""}
+                  onChange={handleChange}
+                  className="input"
+                  placeholder="branch"
                 />
               </div>
               <div className="input__container focus">

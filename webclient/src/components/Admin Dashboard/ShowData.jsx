@@ -18,6 +18,15 @@ const ShowData = () => {
       console.log(error);
     }
   };
+  const deleteUser = async (id) => {
+    try {
+      window.alert("delete user");
+      await axios.delete(`/api/v1/student/${id}`);
+      getUsers();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className="show__data">
@@ -54,17 +63,18 @@ const ShowData = () => {
                         </div>
                       </button>
                     </NavLink>
-                    <NavLink to={`studentedit/${user._id}`}>
-                      <button
-                        className="view__button"
-                        style={{ backgroundColor: "red" }}
-                      >
-                        Delete
-                        <div className="crud__icons">
-                          <AiOutlineDelete />
-                        </div>
-                      </button>
-                    </NavLink>
+                    {/* <NavLink to={`studentedit/${user._id}`}> */}
+                    <button
+                      onClick={() => deleteUser(user._id)}
+                      className="view__button"
+                      style={{ backgroundColor: "red" }}
+                    >
+                      Delete
+                      <div className="crud__icons">
+                        <AiOutlineDelete />
+                      </div>
+                    </button>
+                    {/* </NavLink> */}
                   </td>
                 </tr>
               </tbody>

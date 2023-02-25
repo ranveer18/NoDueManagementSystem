@@ -1,5 +1,5 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
 const Sidebar = (prop) => {
   return (
@@ -19,9 +19,12 @@ const Sidebar = (prop) => {
           </ul>
         </div>
         <div className="sidebar__btns">
-          <div className="btn btn__primary ">{prop.btn1}</div>
-
-          <div className="btn btn__primary ">{prop.btn2}</div>
+          <NavLink to="/login">
+            <div className="btn btn__primary ">Login</div>
+          </NavLink>
+          <NavLink to="/">
+            <div className="btn btn__primary ">Register</div>
+          </NavLink>{" "}
         </div>
       </aside>
     </>

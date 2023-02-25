@@ -10,13 +10,13 @@ const sendEmail = async ({ to, subject, html }) => {
     host: "smtp.ethereal.email",
     port: 587,
     auth: {
-      user: "tyreek78@ethereal.email",
-      pass: "SncbnPACgr1R6K8jcv",
+      user: "renee.block@ethereal.email",
+      pass: "3f2PUhSyYP5RdQUAkf",
     },
   });
 
   return transporter.sendMail({
-    from: '"sajanranveer" <vasooliApp@gmail.com>', // sender address
+    from: '"NoDue" <collegeNoDue@gmail.com>', // sender address
     to,
     subject,
     html,
@@ -29,7 +29,7 @@ const sendVerificationEmail = async ({
   verificationToken,
   origin,
 }) => {
-  const verifyEmail = `${origin}/api/v1/verify-email?token=${verificationToken}&email=${email}`;
+  const verifyEmail = `${origin}/user/verify-email?token=${verificationToken}&email=${email}`;
 
   const message = `<p>Please confirm your email by clicking on the following link : 
   <a href="${verifyEmail}">Verify Email</a> </p>`;

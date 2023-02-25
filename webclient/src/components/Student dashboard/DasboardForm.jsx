@@ -42,14 +42,7 @@ const DasboardForm = () => {
       console.log(error);
     }
   };
-  // const deleteUser = async (id) => {
-  //   try {
-  //     // await axios.delete(`http://192.168.0.105:5050/api/v1/student/${id}`);
-  //     // navigation.navigate("Home");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+
   return (
     <>
       <form

@@ -74,7 +74,6 @@ const verifyEmail = async (req, res) => {
         msg: "Verification Failed",
       });
     }
-    console.log("checking");
     (AdminstrationRegisterData.isVerified = true),
       (AdminstrationRegisterData.verified = Date.now());
     AdminstrationRegisterData.verificationToken = "";

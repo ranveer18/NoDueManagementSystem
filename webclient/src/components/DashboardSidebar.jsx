@@ -8,9 +8,11 @@ const DashboardSidebar = () => {
       <aside className="dashboard__sidebar">
         <div className="sidebar__btns_container">
           <ul className="dashboard__sidebar_ul">
-            <li className="dashboard__sidebar_li">
-              <div className="dashboard__sidebar_btn">Basic Details</div>
-            </li>
+            <NavLink to={`/`}>
+              <li className="dashboard__sidebar_li">
+                <div className="dashboard__sidebar_btn">Add Student</div>
+              </li>
+            </NavLink>
             {/* <li className="dashboard__sidebar_li">
               <div className="dashboard__sidebar_btn">Family Details</div>
             </li>
@@ -22,12 +24,12 @@ const DashboardSidebar = () => {
             </li> */}
           </ul>
         </div>
-        <div className="logout__div">
-          <NavLink to={`/logout`}>
+        <NavLink to={`/logout`}>
+          <div className="logout__div">
             <BiLogOut />
             <div className="logout__btn">Logout</div>
-          </NavLink>
-        </div>
+          </div>
+        </NavLink>
       </aside>
     </>
   );

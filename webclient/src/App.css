@@ -23,6 +23,12 @@ html {
   justify-content: center;
 }
 
+a {
+  color: var(--white);
+  text-decoration: none;
+
+}
+
 .social__link {
   position: absolute;
   display: flex;
@@ -98,7 +104,7 @@ html {
   justify-content: center;
   align-items: center;
   width: 67.2rem;
-  height: 62.6rem;
+  height: auto;
   border-radius: 0 1rem 1rem 1rem;
   background-color: var(--white);
 }
@@ -203,7 +209,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: flex-end; */
+  align-items: flex-end;
   color: var(--white);
   font-size: var(--large-font);
 
@@ -246,6 +252,7 @@ html {
 
 .logout__div {
   display: flex;
+  /* flex-direction: row; */
   align-items: center;
   justify-content: center;
   margin-bottom: 5rem;
