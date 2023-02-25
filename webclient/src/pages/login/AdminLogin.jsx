@@ -1,8 +1,8 @@
 import React from "react";
-import LoginForm from "./components/LoginForm";
-import Sidebar from "./components/Sidebar";
+import LoginForm from "../../components/LoginForm";
+import Sidebar from "../../components/Sidebar";
 
-const StudentLogin = () => {
+const AdminLogin = () => {
   return (
     <>
       <section className="register__section">
@@ -13,4 +13,4 @@ const StudentLogin = () => {
   );
 };
 
-export default StudentLogin;
+export default AdminLogin;

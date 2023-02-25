@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 import { FaUser, FaUserGraduate, FaLock } from "react-icons/fa";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 
@@ -51,10 +51,22 @@ const RegisterForm = () => {
   return (
     <>
       <div className="form__container">
-        <div className="form_box">
-          <div className="form_box__header">
-            <h1 className="form_box__header_h1">Student Register</h1>
+        <div className="form_header">
+          <NavLink to={`/`}>
+            <div className="form_box__header">
+              <h1 className="form_box__header_h1">Student Register</h1>
+            </div>
+          </NavLink>
+          {/* <NavLink to={""}> */}
+          <div
+            className="form_box__header"
+            style={{ backgroundColor: "#d9d9d9" }}
+          >
+            <h1 className="form_box__header_h1"></h1>
           </div>
+          {/* </NavLink> */}
+        </div>
+        <div className="form_box">
           <div className="form_box__body">
             <form onSubmit={handleSubmit} className="contact__form">
               <div className="input__container focus">

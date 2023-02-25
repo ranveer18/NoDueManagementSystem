@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaLock } from "react-icons/fa";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -34,11 +35,22 @@ const LoginForm = () => {
   return (
     <>
       <div className="form__container">
+        <div className="form_header">
+          <NavLink to={`/login`}>
+            <div className="form_box__header">
+              <h1 className="form_box__header_h1">Admin Login</h1>
+            </div>
+          </NavLink>
+          <NavLink to={""}>
+            <div
+              className="form_box__header"
+              style={{ backgroundColor: "#d9d9d9" }}
+            >
+              <h1 className="form_box__header_h1">Student Login</h1>
+            </div>
+          </NavLink>
+        </div>
         <div className="form_box">
-          <div className="form_box__header" style={{ top: "-20.6rem" }}>
-            <h1 className="form_box__header_h1">Admin Login</h1>
-          </div>
-
           <div className="login_pic">
             <img src="" aria-hidden alt="image" />
           </div>

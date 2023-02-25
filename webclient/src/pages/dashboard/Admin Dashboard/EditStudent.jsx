@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import StudentDashboard from "../../StudentDashboard";
+import StudentDashboard from "../Student dashboard/StudentDashboard";
 const EditStudent = () => {
   const navigation = useNavigate();
   useEffect(() => {

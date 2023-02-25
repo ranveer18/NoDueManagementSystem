@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DashboardSidebar from "../DashboardSidebar";
+import DashboardSidebar from "../../../components/DashboardSidebar";
 import FilterSection from "./FilterSection";
 import ShowData from "./ShowData";
 const AdminDashboard = () => {

@@ -1,7 +1,7 @@
 import React from "react";
-import DasboardForm from "./components/Student dashboard/DasboardForm";
-import DashboardSidebar from "./components/DashboardSidebar";
-import profilePic from "./images/pp.jpg";
+import DasboardForm from "../../../components/DasboardForm";
+import DashboardSidebar from "../../../components/DashboardSidebar";
+// import profilePic from "./images/pp.jpg";
 
 const StudentDashboard = () => {
   return (
@@ -11,7 +11,7 @@ const StudentDashboard = () => {
         <div className="dashboard__form__container">
           <div className="form__data__container">
             <div className="form__profile-pic">
-              <img src={profilePic} alt="profilepic" />
+              <img alt="profilepic" />
             </div>
             <DasboardForm />
           </div>

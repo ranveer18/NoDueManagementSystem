@@ -1,6 +1,6 @@
 import React from "react";
-import RegisterForm from "./components/RegisterForm";
-import Sidebar from "./components/Sidebar";
+import RegisterForm from "../../components/RegisterForm";
+import Sidebar from "../../components/Sidebar";
 
 const StudentRegister = () => {
   return (
