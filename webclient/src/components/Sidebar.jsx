@@ -19,10 +19,10 @@ const Sidebar = (prop) => {
           </ul>
         </div>
         <div className="sidebar__btns">
-          <NavLink to="/login">
+          <NavLink to="/">
             <div className="btn btn__primary ">Login</div>
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/register">
             <div className="btn btn__primary ">Register</div>
           </NavLink>{" "}
         </div>

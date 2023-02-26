@@ -36,12 +36,12 @@ const LoginForm = () => {
     <>
       <div className="form__container">
         <div className="form_header">
-          <NavLink to={`/login`}>
+          <NavLink to={`/`}>
             <div className="form_box__header">
               <h1 className="form_box__header_h1">Admin Login</h1>
             </div>
           </NavLink>
-          <NavLink to={""}>
+          <NavLink to={"/studentLogin"}>
             <div
               className="form_box__header"
               style={{ backgroundColor: "#d9d9d9" }}

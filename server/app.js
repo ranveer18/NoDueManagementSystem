@@ -4,9 +4,10 @@ const app = express();
 const connectDB = require("./db/conn");
 var bodyParser = require("body-parser");
 const Authenticate = require("./middleware/authenticate");
+const studentAuthenticate = require("./middleware/studentAuthenticate");
 var cookieParser = require("cookie-parser");
 
-const { admin, logout } = require("./controller/AuthRoute");
+const { admin, logout, student } = require("./controller/AuthRoute");
 
 const studentRouter = require("./router/Student/studentRoute");
 const studentAuthRouter = require("./router/Student/studentAuthRoute");
@@ -18,7 +19,8 @@ app.use(express.json());
 app.use("/api/v1", studentRouter, departmentRouter);
 app.use("/api/v1", studentAuthRouter, departmentAuthRouter);
 app.get("/api/v1/admin", Authenticate, admin);
-app.get("/api/v1y/logout", Authenticate, logout);
+app.get("/api/v1/studentAuth", studentAuthenticate, student);
+app.get("/api/v1/logout", Authenticate, logout);
 
 const port = process.env.PORT || 5000;
 const start = async () => {

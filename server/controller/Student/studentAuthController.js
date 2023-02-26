@@ -93,31 +93,35 @@ const verifyEmail = async (req, res) => {
 // login route
 
 const loginRoute = async (req, res) => {
-  const { email, password } = req.body;
-  if (!email || !password) {
-    return res.status(400).json({ error: "Enter valid data" });
-  }
-
-  const userLogin = await studentRegister.findOne({ email: email });
-  // console.log(userLogin);
-  if (!userLogin.isVerified) {
-    return res.status(401).json({ error: "Please verify your email" });
-  }
-  if (userLogin) {
-    const isMatch = await bcrypt.compare(password, userLogin.password);
-    const token = await userLogin.generateAuthToken();
-    console.log(token);
-    res.cookie("jwtoken", token, {
-      expires: new Date(Date.now() + 500000),
-      httpOnly: true,
-      // 9min valid
-    });
-
-    if (!isMatch) {
-      res.status(400).json({ error: "Invalid creditial" });
-    } else {
-      res.status(201).json({ message: "Login successfully" });
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ error: "Enter valid data" });
     }
+
+    const userLogin = await studentRegister.findOne({ email: email });
+    // console.log(userLogin);
+    if (!userLogin.isVerified) {
+      return res.status(401).json({ error: "Please verify your email" });
+    }
+    if (userLogin) {
+      const isMatch = await bcrypt.compare(password, userLogin.password);
+      const token = await userLogin.generateAuthToken();
+      console.log(token);
+      res.cookie("jwtoken", token, {
+        expires: new Date(Date.now() + 500000),
+        httpOnly: true,
+        // 9min valid
+      });
+
+      if (!isMatch) {
+        res.status(400).json({ error: "Invalid creditial" });
+      } else {
+        res.status(201).json({ message: "Login successfully" });
+      }
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 

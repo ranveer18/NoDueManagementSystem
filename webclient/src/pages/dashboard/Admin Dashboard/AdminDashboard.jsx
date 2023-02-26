@@ -23,7 +23,7 @@ const AdminDashboard = () => {
         console.log(error);
       }
     } catch (error) {
-      navigation("/login");
+      navigation("/");
       console.log(error);
     }
   };

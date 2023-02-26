@@ -18,8 +18,15 @@ const admin = async (req, res) => {
   try {
     await res.send(req.rootUser);
   } catch (error) {
-    consolelog(error);
+    console.log(error);
+  }
+};
+const student = async (req, res) => {
+  try {
+    await res.send(req.rootUser);
+  } catch (error) {
+    console.log(error);
   }
 };
 
-module.exports = { logout, admin };
+module.exports = { logout, admin, student };
