@@ -529,6 +529,10 @@ td {
     position: fixed;
   }
 
+  .dashboard__sidebar {
+    position: fixed;
+  }
+
   .form__container {
     width: 100vw;
   }
@@ -538,9 +542,9 @@ td {
     width: 27vw
   }
 
-  .dashboard__sidebar {
+  /* .dashboard__sidebar {
     display: none;
-  }
+  } */
 
   .dashboard__form__container {
     width: 100vw;
@@ -580,6 +584,21 @@ td {
     transform: translateX(0);
   }
 
+  .dashboard__sidebar {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    width: 35vw;
+    z-index: 999;
+    transition: all 0.5s ease;
+    display: flex;
+  }
+
+  .showDashboard-sidebar {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    transition: all 0.5s ease;
+  }
+
   .nav__close {
     display: flex;
     color: var(--white);
@@ -605,4 +624,7 @@ td {
     padding: 0px;
   }
 
+  .form_box__header_h1 {
+    font-size: var(--medium-font);
+  }
 }

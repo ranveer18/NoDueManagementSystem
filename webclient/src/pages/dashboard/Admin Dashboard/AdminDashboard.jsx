@@ -18,7 +18,7 @@ const AdminDashboard = () => {
         },
       });
       const data = await res.json();
-      if (res.status === 401 || !data) {
+      if (res.status === 400 || !data) {
         const error = new Error(res.error);
         console.log(error);
       }
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
       <section className="dashboard__section">
         <DashboardSidebar />
         <div className="dashboard__form__container">
-          <FilterSection />
+          {/* <FilterSection /> */}
           <ShowData />
         </div>
       </section>

@@ -43,7 +43,7 @@ const StudentLogin = () => {
             <NavLink to={`/`}>
               <div
                 className="form_box__header"
-                style={{ backgroundColor: "#d9d9d9" }}
+                style={{ backgroundColor: "#F0F4FA" }}
               >
                 <h1 className="form_box__header_h1">Admin Login</h1>
               </div>

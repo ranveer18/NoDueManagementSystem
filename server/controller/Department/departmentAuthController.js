@@ -97,9 +97,9 @@ const departmentLoginRoute = async (req, res) => {
     const isMatch = await bcrypt.compare(password, userLogin.password);
     const token = await userLogin.generateAuthToken();
     res.cookie("jwtoken", token, {
-      expires: new Date(Date.now() + 500000),
+      expires: new Date(Date.now() + 1800000),
       httpOnly: true,
-      // 9min valid
+      // 30min valid
     });
 
     if (!isMatch) {

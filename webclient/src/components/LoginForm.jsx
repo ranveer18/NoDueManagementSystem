@@ -23,7 +23,7 @@ const LoginForm = () => {
         }),
       });
       const data = response.json();
-      if (data.status === 400 || !data) {
+      if (response.status === 400 || !data) {
         window.alert("invalid credentials");
       } else {
         navigate("/admin");
@@ -44,7 +44,7 @@ const LoginForm = () => {
           <NavLink to={"/studentLogin"}>
             <div
               className="form_box__header"
-              style={{ backgroundColor: "#d9d9d9" }}
+              style={{ backgroundColor: "#F0F4FA" }}
             >
               <h1 className="form_box__header_h1">Student Login</h1>
             </div>

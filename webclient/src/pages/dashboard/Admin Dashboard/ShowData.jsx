@@ -2,22 +2,46 @@ import React, { useState, useEffect } from "react";
 import { FiEdit } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import { FaFilter } from "react-icons/fa";
+
 import axios from "axios";
 const ShowData = () => {
   const [users, setUser] = useState([]);
+  const [foundUsers, setFoundUsers] = useState(users);
 
   useEffect(() => {
     getUsers();
   }, []);
 
+  const [name, setName] = useState("");
+
   const getUsers = async () => {
     try {
       const response = await axios.get("/api/v1/student");
       setUser(response.data);
+      setFoundUsers(response.data);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const filter = (e) => {
+    const keyword = e.target.value;
+
+    if (keyword !== "") {
+      const results = users.filter((user) => {
+        return user.registration
+          .toLowerCase()
+          .startsWith(keyword.toLowerCase());
+      });
+      setFoundUsers(results);
+    } else {
+      setFoundUsers(users);
+    }
+
+    setName(keyword);
+  };
+
   const deleteUser = async (id) => {
     try {
       window.alert("delete user");
@@ -27,8 +51,28 @@ const ShowData = () => {
       console.log(error);
     }
   };
+
   return (
     <>
+      <div className="admin__search__container">
+        <div className="admin__search__search">
+          <div className="filter_icon">
+            <FaFilter />
+          </div>
+          <input
+            // type="text"
+            type="search"
+            className="filter__registration input"
+            value={name}
+            onChange={filter}
+            //         className="input"
+            //         placeholder="Filter"
+            placeholder="Search by Registration "
+          />
+          <div className="search__button">Search</div>
+        </div>
+        {/* <DasboardForm /> */}
+      </div>
       <div className="show__data">
         <table>
           <thead>
@@ -42,8 +86,10 @@ const ShowData = () => {
             </tr>
           </thead>
 
-          {users.map((user, index) => {
-            return (
+          {foundUsers && foundUsers.length > 0 ? (
+            foundUsers.map((user, index) => (
+              // {users.map((user, index) => {
+              // return (
               <tbody key={index}>
                 <tr>
                   <td className="serial_no">{index + 1}</td>
@@ -78,8 +124,14 @@ const ShowData = () => {
                   </td>
                 </tr>
               </tbody>
-            );
-          })}
+            ))
+          ) : (
+            <tbody>
+              <tr>
+                <td>No results found!</td>
+              </tr>
+            </tbody>
+          )}
         </table>
       </div>
     </>
