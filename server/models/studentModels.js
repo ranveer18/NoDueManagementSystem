@@ -37,6 +37,38 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  hostelDue: {
+    type: Number,
+    default: 0,
+  },
+  messDue: {
+    type: Number,
+    default: 0,
+  },
+  libraryDue: {
+    type: Number,
+    default: 0,
+  },
+  CSEDue: {
+    type: Number,
+    default: 0,
+  },
+  EEEDue: {
+    type: Number,
+    default: 0,
+  },
+  MECHDue: {
+    type: Number,
+    default: 0,
+  },
+  CIVILDue: {
+    type: Number,
+    default: 0,
+  },
+  miscellaneousDue: {
+    type: Number,
+    default: 0,
+  },
   verificationToken: String,
   isVerified: {
     type: Boolean,

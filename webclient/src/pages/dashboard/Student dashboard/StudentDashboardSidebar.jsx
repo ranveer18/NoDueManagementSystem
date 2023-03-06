@@ -31,15 +31,11 @@ const StudentDashboardSidebar = () => {
                 <div className="dashboard__sidebar_btn">View Profile</div>
               </li>
             </NavLink>
-            {/* <li className="dashboard__sidebar_li">
-              <div className="dashboard__sidebar_btn">Family Details</div>
-            </li>
-            <li className="dashboard__sidebar_li">
-              <div className="dashboard__sidebar_btn">Educational Details</div>
-            </li>
-            <li className="dashboard__sidebar_li">
-              <div className="dashboard__sidebar_btn">Account Details</div>
-            </li> */}
+            <NavLink to={`/student/due`}>
+              <li className="dashboard__sidebar_li">
+                <div className="dashboard__sidebar_btn">View Due</div>
+              </li>
+            </NavLink>
           </ul>
         </div>
         <NavLink to={`/logout`}>

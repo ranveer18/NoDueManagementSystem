@@ -42,7 +42,7 @@ const RegisterForm = () => {
         window.alert("email already exit");
       } else {
         window.alert("Success! Please check your email to verify account");
-        navigate("/login");
+        navigate("/studentLogin");
       }
     } catch (error) {
       console.log(error);

@@ -12,6 +12,14 @@ const DasboardForm = () => {
   const [registration, setRegistration] = useState("");
   const [phone, setPhone] = useState("");
   const [branch, setBranch] = useState("");
+  const [hostelDue, sethostelDue] = useState("");
+  const [messDue, setMessDue] = useState("");
+  const [libraryDue, setLibraryDue] = useState("");
+  const [miscellaneousDue, setmiscellaneousDue] = useState("");
+  const [CSEDue, setCSEDue] = useState("");
+  const [EEEDue, setEEEDue] = useState("");
+  const [CIVILDue, setCIVILDue] = useState("");
+  const [MECHDue, setMECHDue] = useState("");
 
   useEffect(() => {
     getUserById();
@@ -25,6 +33,15 @@ const DasboardForm = () => {
       setRegistration(response.data.registration);
       setPhone(response.data.phone);
       setBranch(response.data.branch);
+      sethostelDue(response.data.hostelDue);
+      setMessDue(response.data.messDue);
+      setLibraryDue(response.data.libraryDue);
+      setmiscellaneousDue(response.data.miscellaneousDue);
+      setCSEDue(response.data.CSEDue);
+      setEEEDue(response.data.EEEDue);
+      setCIVILDue(response.data.CIVILDue);
+      setMECHDue(response.data.MECHDue);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -34,9 +51,20 @@ const DasboardForm = () => {
     try {
       await axios.patch(`/api/v1/student/${id}`, {
         name,
-        // registration,
+        // email,
+        registration,
+        phone,
+        branch,
+        hostelDue,
+        messDue,
+        libraryDue,
+        miscellaneousDue,
+        CSEDue,
+        EEEDue,
+        CIVILDue,
+        MECHDue,
       });
-      alert(`Thanku ${name} /api/v1/student/${id} to reach us...`);
+      alert(`Updated ${name} details`);
       navigate("/admin");
     } catch (error) {
       console.log(error);
@@ -148,6 +176,160 @@ const DasboardForm = () => {
             />
           </div>
         </div>
+        {/* due  */}
+        <div className="input__div">
+          <p className="input__div_p">Hostel Due:</p>
+          <div className="input__container focus">
+            <div className="icon">
+              <FaUser />
+            </div>
+            <input
+              required
+              type="number"
+              className="input"
+              placeholder={hostelDue}
+              name="hostelDue"
+              value={hostelDue}
+              onChange={(e) => {
+                sethostelDue(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="input__div">
+          <p className="input__div_p">Mess Due:</p>
+          <div className="input__container focus">
+            <div className="icon">
+              <FaUser />
+            </div>
+            <input
+              required
+              type="number"
+              className="input"
+              placeholder="Mess Due"
+              name="messDue"
+              value={messDue}
+              onChange={(e) => {
+                setMessDue(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="input__div">
+          <p className="input__div_p">Library Due:</p>
+          <div className="input__container focus">
+            <div className="icon">
+              <FaUser />
+            </div>
+            <input
+              required
+              type="number"
+              className="input"
+              placeholder="Library Due"
+              name="libraryDue"
+              value={libraryDue}
+              onChange={(e) => {
+                setLibraryDue(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="input__div">
+          <p className="input__div_p">CSE Department Due:</p>
+          <div className="input__container focus">
+            <div className="icon">
+              <FaUser />
+            </div>
+            <input
+              required
+              type="number"
+              className="input"
+              placeholder="CSE Department Due"
+              name="CSEDue"
+              value={CSEDue}
+              onChange={(e) => {
+                setCSEDue(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="input__div">
+          <p className="input__div_p">EEE Department Due :</p>
+          <div className="input__container focus">
+            <div className="icon">
+              <FaUser />
+            </div>
+            <input
+              required
+              type="number"
+              className="input"
+              placeholder="EEE Department Due"
+              name="EEEDue"
+              value={EEEDue}
+              onChange={(e) => {
+                setEEEDue(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="input__div">
+          <p className="input__div_p">CE Department Due :</p>
+          <div className="input__container focus">
+            <div className="icon">
+              <FaUser />
+            </div>
+            <input
+              required
+              type="number"
+              className="input"
+              placeholder="CIVIL Department Due"
+              name="CIVILDue"
+              value={CIVILDue}
+              onChange={(e) => {
+                setCIVILDue(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="input__div">
+          <p className="input__div_p">ME Department Due :</p>
+          <div className="input__container focus">
+            <div className="icon">
+              <FaUser />
+            </div>
+            <input
+              required
+              type="number"
+              className="input"
+              placeholder="MECH Department Due "
+              name="MECHDue"
+              value={MECHDue}
+              onChange={(e) => {
+                setMECHDue(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className="input__div">
+          <p className="input__div_p">Miscellaneous Due:</p>
+          <div className="input__container focus">
+            <div className="icon">
+              <FaUser />
+            </div>
+            <input
+              required
+              type="number"
+              className="input"
+              placeholder="Miscellaneous Due"
+              name="miscellaneousDue"
+              value={miscellaneousDue}
+              onChange={(e) => {
+                setmiscellaneousDue(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        {/*  */}
       </form>
       {/*  */}
       <div className="form__save">

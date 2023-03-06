@@ -79,7 +79,7 @@ a {
   cursor: pointer;
   position: fixed;
   left: 1.5rem;
-  top: 2rem;
+  top: 1rem;
   font-size: 1.2rem;
   border-radius: .25rem;
   border: none;
@@ -307,7 +307,7 @@ a {
   /* flex-direction: row; */
   align-items: center;
   justify-content: center;
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
   height: var(--form-btn-height);
   width: var(--btn-width);
   font-size: 2rem;
@@ -330,7 +330,8 @@ a {
 
 .form__data__container {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  overflow: scroll;
   flex-direction: column;
   border-radius: var(--border-radius);
   width: 78vw;
@@ -343,14 +344,17 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  height: 65vh;
+  /* height: 65vh; */
   padding: 2rem 5rem;
+}
+
+.studentProfle_FormData {
+  flex-direction: column;
+
 }
 
 .form__profile-pic {
   display: flex;
-  width: 78vw;
   justify-content: center;
   align-items: center;
   padding: 2rem;
@@ -481,7 +485,7 @@ td {
 }
 
 .serial_no {
-  width: 3rem;
+  width: 5rem;
 }
 
 .crud__icons {
@@ -490,6 +494,66 @@ td {
   font-weight: var(--font-medium);
   cursor: pointer;
 }
+
+.due_heading {
+  align-self: center;
+  font-size: var(--large-font);
+  padding-top: 2rem;
+}
+
+.due_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.due_card {
+  width: var(--input-width);
+  height: 15rem;
+  background-color: var(--bg-color);
+  margin: 1.5rem 2.5rem;
+  padding: 2rem;
+  box-shadow: 1px 2px var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.due_card_total {
+  align-self: center;
+  width: var(--input-width);
+  height: 15rem;
+  color: var(--white);
+  /* background-color: var(--bg-color); */
+  background-image: var(--linear-gradient);
+  margin: 8rem 0rem;
+  padding: 2rem;
+  box-shadow: 1px 2px var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.due_card__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.due_card__left_heading {
+  font-size: var(--large-font);
+  font-weight: var(--font-bold);
+
+}
+
+.due_card__left_p {
+  font-size: var(--medium-font);
+  font-weight: var(--font-medium);
+}
+
+/* view due */
 
 
 /* Media Query */
@@ -587,7 +651,7 @@ td {
   .dashboard__sidebar {
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
-    width: 35vw;
+    width: 60vw;
     z-index: 999;
     transition: all 0.5s ease;
     display: flex;
@@ -617,7 +681,7 @@ td {
 
   table th,
   td {
-    width: 45vw
+    width: 50vw
   }
 
   .form__data {
@@ -627,4 +691,9 @@ td {
   .form_box__header_h1 {
     font-size: var(--medium-font);
   }
+
+  .dashboard__sidebar_btn {
+    width: 20rem;
+  }
+
 }
