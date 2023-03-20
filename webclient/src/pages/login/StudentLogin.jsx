@@ -4,6 +4,7 @@ import { BsFillEnvelopeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
+import Launda from "../../images/launda.svg"
 const StudentLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,9 +55,9 @@ const StudentLogin = () => {
               </div>
             </NavLink>
           </div>
-          <div className="form_box">
+          <div className="form_box login_form_height">
             <div className="login_pic">
-              <img src="" aria-hidden alt="image" />
+              <img src={Launda} aria-hidden alt="image" width="280px" height="200px"/>
             </div>
             <div className="form_box__body">
               <form

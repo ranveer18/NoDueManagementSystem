@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { FaUser, FaUserGraduate, FaLock } from "react-icons/fa";
+import { FaUser, FaUserGraduate, FaLock, FaPhoneAlt, FaBookReader } from "react-icons/fa";
+import { IoSchoolSharp } from "react-icons/io5";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 
 const RegisterForm = () => {
@@ -50,6 +51,7 @@ const RegisterForm = () => {
   };
   return (
     <>
+    <div style={{height: '100vh', overflow: 'scroll'}}>
       <div className="form__container">
         <div className="form_header">
           <NavLink to={`/`}>
@@ -113,7 +115,7 @@ const RegisterForm = () => {
               </div>
               <div className="input__container focus">
                 <div className="icon">
-                  <FaUserGraduate />
+                  <FaPhoneAlt />
                 </div>
                 <input
                   required
@@ -122,12 +124,12 @@ const RegisterForm = () => {
                   value={inputs.phone || ""}
                   onChange={handleChange}
                   className="input"
-                  placeholder="phone Number"
+                  placeholder="Phone Number"
                 />
               </div>
               <div className="input__container focus">
                 <div className="icon">
-                  <FaUserGraduate />
+                  <FaBookReader />
                 </div>
                 <input
                   required
@@ -136,12 +138,12 @@ const RegisterForm = () => {
                   value={inputs.batch || ""}
                   onChange={handleChange}
                   className="input"
-                  placeholder="batch"
+                  placeholder="Batch (2019 - 2023)"
                 />
               </div>
               <div className="input__container focus">
                 <div className="icon">
-                  <FaUserGraduate />
+                  <IoSchoolSharp />
                 </div>
                 <input
                   required
@@ -150,7 +152,7 @@ const RegisterForm = () => {
                   value={inputs.branch || ""}
                   onChange={handleChange}
                   className="input"
-                  placeholder="branch"
+                  placeholder="Branch"
                 />
               </div>
               <div className="input__container focus">
@@ -174,7 +176,7 @@ const RegisterForm = () => {
                 </div>
                 <input
                   required
-                  type="cpassword"
+                  type="password"
                   name="cpassword"
                   value={inputs.cpassword || ""}
                   onChange={handleChange}
@@ -191,6 +193,7 @@ const RegisterForm = () => {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 };

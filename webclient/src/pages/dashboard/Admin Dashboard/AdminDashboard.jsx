@@ -31,7 +31,7 @@ const AdminDashboard = () => {
     <>
       <section className="dashboard__section">
         <DashboardSidebar />
-        <div className="dashboard__form__container">
+        <div className="dashboard__form__container" style={{padding: "2rem"}}>
           {/* <FilterSection /> */}
           <ShowData />
         </div>

@@ -70,6 +70,7 @@ const StudentProfile = () => {
                       setName(e.target.value);
                     }}
                     placeholder="Enter Your Full Name"
+                    readOnly = {true}
                   />
                 </div>
               </div>
@@ -89,6 +90,7 @@ const StudentProfile = () => {
                       setRegistration(e.target.value);
                     }}
                     placeholder="Enter Your Registration Number"
+                    readOnly = {true}
                   />
                 </div>
               </div>
@@ -109,6 +111,7 @@ const StudentProfile = () => {
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
+                    readOnly = {true}
                   />
                 </div>
               </div>
@@ -128,6 +131,7 @@ const StudentProfile = () => {
                     onChange={(e) => {
                       setPhone(e.target.value);
                     }}
+                    readOnly = {true}
                   />
                 </div>
               </div>
@@ -148,12 +152,13 @@ const StudentProfile = () => {
                     onChange={(e) => {
                       setBranch(e.target.value);
                     }}
+                    readOnly = {true}
                   />
                 </div>
               </div>
             </form>
             {/*  */}
-            <div className="form__save">
+            <div className="form__save" style={{paddingBottom: "2rem"}}>
               <button
                 type="submit"
                 onClick={updateUser}

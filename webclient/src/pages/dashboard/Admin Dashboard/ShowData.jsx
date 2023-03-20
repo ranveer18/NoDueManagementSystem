@@ -73,7 +73,7 @@ const ShowData = () => {
         </div>
         {/* <DasboardForm /> */}
       </div>
-      <div className="show__data">
+      <div className="show__data" style={{padding: '2rem'}}>
         <table>
           <thead>
             <tr>
@@ -101,7 +101,7 @@ const ShowData = () => {
                     <NavLink to={`studentedit/${user._id}`}>
                       <button
                         className="view__button"
-                        style={{ backgroundColor: "green" }}
+                        style={{ backgroundColor: "#5ac0f6" }}
                       >
                         Edit
                         <div className="crud__icons">
@@ -113,7 +113,7 @@ const ShowData = () => {
                     <button
                       onClick={() => deleteUser(user._id)}
                       className="view__button"
-                      style={{ backgroundColor: "red" }}
+                      style={{ backgroundColor: "#f2611e", width: "auto", padding: "10px 1rem" }}
                     >
                       Delete
                       <div className="crud__icons">

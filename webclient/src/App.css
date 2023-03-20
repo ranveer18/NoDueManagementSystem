@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family:'Courier New', Courier, monospace;
 }
 
 html {
@@ -117,6 +118,7 @@ a {
   cursor: pointer;
   font-weight: var(--font-bold);
   font-size: var(--medium-font);
+  transition: all .25s ease-in-out;
 }
 
 
@@ -130,14 +132,15 @@ a {
 
 .form__container {
   overflow-y: scroll;
-  height: 100vh;
+  /* height: 100vh; */
+
   width: 70vw;
   background-color: var(--bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 5rem;
+  padding: 2rem;
 }
 
 .form_header {
@@ -159,7 +162,9 @@ a {
   border-radius: 0rem 0rem 1rem 1rem;
   background-color: var(--white);
 }
-
+.login_form_height{
+  height: 500px;
+}
 .form_box__header {
   display: flex;
   align-items: center;
@@ -226,9 +231,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: var(--black); */
   color: var(--white);
-  /* border-radius: var(--border-radius); */
+  border-radius: var(--border-radius);
   border: none;
   height: var(--form-btn-height);
   width: 100px;
@@ -236,7 +240,6 @@ a {
   cursor: pointer;
   font-weight: var(--font-bold);
   font-size: var(--medium-font);
-  /* margin: 3rem; */
   margin: 5px;
 }
 
@@ -293,6 +296,7 @@ a {
   cursor: pointer;
   font-weight: var(--font-bold);
   color: var(--white);
+  transition: all .25s ease-in-out;
 }
 
 .dashboard__sidebar_btn:hover {
