@@ -36,6 +36,16 @@ const StudentDashboardSidebar = () => {
                 <div className="dashboard__sidebar_btn">View Due</div>
               </li>
             </NavLink>
+            <NavLink to={`/student/applyNoDue`}>
+              <li className="dashboard__sidebar_li">
+                <div className="dashboard__sidebar_btn">Apply No Due</div>
+              </li>
+            </NavLink>
+            <NavLink to={`/student/makePayment`}>
+              <li className="dashboard__sidebar_li">
+                <div className="dashboard__sidebar_btn">Make Payment</div>
+              </li>
+            </NavLink>
           </ul>
         </div>
         <NavLink to={`/logout`}>

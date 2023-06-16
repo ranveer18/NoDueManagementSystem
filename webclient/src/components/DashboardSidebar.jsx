@@ -26,9 +26,21 @@ const DashboardSidebar = () => {
         {/* <aside className="dashboard__sidebar"> */}
         <div className="sidebar__btns_container">
           <ul className="dashboard__sidebar_ul">
+            <NavLink to={`/admin`}>
+              <li className="dashboard__sidebar_li">
+                <div className="dashboard__sidebar_btn">
+                  Show Student Details
+                </div>
+              </li>
+            </NavLink>
             <NavLink to={`/register`}>
               <li className="dashboard__sidebar_li">
                 <div className="dashboard__sidebar_btn">Add Student</div>
+              </li>
+            </NavLink>
+            <NavLink to={`/no-due-applied`}>
+              <li className="dashboard__sidebar_li">
+                <div className="dashboard__sidebar_btn">No Due Clearance</div>
               </li>
             </NavLink>
             {/* <li className="dashboard__sidebar_li">
