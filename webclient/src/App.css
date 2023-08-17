@@ -257,6 +257,7 @@ a {
 
 .dashboard__sidebar {
   width: 300px;
+  height: 100vh;
   background-image: var(--linear-gradient);
   display: flex;
   flex-direction: column;
@@ -712,8 +713,5 @@ td.email{
     font-size: var(--medium-font);
   }
 
-  .dashboard__sidebar_btn {
-    width: 20rem;
-  }
 
 }
