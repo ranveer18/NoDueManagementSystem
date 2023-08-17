@@ -341,6 +341,7 @@ a {
 
 .form__data__container {
   display: flex;
+  min-height: 100%;
   /* flex-wrap: wrap; */
   overflow: scroll;
   flex-direction: column;
