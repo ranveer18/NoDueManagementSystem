@@ -85,17 +85,17 @@ const ShowData = () => {
               <th></th>
             </tr>
           </thead>
-
+          <tbody>
           {foundUsers && foundUsers.length > 0 ? (
             foundUsers.map((user, index) => (
               // {users.map((user, index) => {
               // return (
-              <tbody key={index}>
-                <tr>
+              
+                <tr key={index}>
                   <td className="serial_no">{index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.registration}</td>
-                  <td>{user.email}</td>
+                  <td className="email">{user.email}</td>
                   <td>{user.phone}</td>
                   <td>
                     <NavLink to={`studentedit/${user._id}`}>
@@ -123,15 +123,14 @@ const ShowData = () => {
                     {/* </NavLink> */}
                   </td>
                 </tr>
-              </tbody>
+              
             ))
           ) : (
-            <tbody>
               <tr>
                 <td>No results found!</td>
               </tr>
-            </tbody>
           )}
+          </tbody>
         </table>
       </div>
     </>

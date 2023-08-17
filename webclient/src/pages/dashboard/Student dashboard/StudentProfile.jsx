@@ -158,7 +158,7 @@ const StudentProfile = () => {
               </div>
             </form>
             {/*  */}
-            <div className="form__save" style={{paddingBottom: "2rem"}}>
+            {/* <div className="form__save" style={{paddingBottom: "2rem"}}>
               <button
                 type="submit"
                 onClick={updateUser}
@@ -168,7 +168,7 @@ const StudentProfile = () => {
                 <div className="button__icon"></div>
                 Save
               </button>
-            </div>
+            </div> */}
             {/*  */}
           </div>
         </div>
