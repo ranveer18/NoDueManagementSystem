@@ -109,6 +109,8 @@ const departmentLoginRoute = async (req, res) => {
     } else {
       res.status(201).json({ message: "Login successfully" });
     }
+  }else{
+    res.status(400).json({ error: "Invalid creditial" });
   }
 };
 

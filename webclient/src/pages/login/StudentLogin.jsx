@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FaLock } from "react-icons/fa";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -6,11 +6,13 @@ import { NavLink } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import Launda from "../../images/launda.svg";
 const StudentLogin = () => {
+  const loginBtn = useRef(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    loginBtn.current.disabled = true;
     try {
       const response = await fetch("/api/v1/login/student", {
         method: "POST",
@@ -25,13 +27,17 @@ const StudentLogin = () => {
       const data = response.json();
       if (response.status === 400 || !data) {
         window.alert("invalid credentials");
+        loginBtn.current.disabled = false;
       } else if (response.status === 401) {
         window.alert("Vefiy your email first");
+        loginBtn.current.disabled = false;
       } else {
+        loginBtn.current.disabled = false;
         navigate("/student");
       }
     } catch (error) {
       console.log(error);
+      loginBtn.current.disabled = false;
     }
   };
   return (
@@ -107,7 +113,7 @@ const StudentLogin = () => {
                   />
                 </div>
 
-                <button type="submit" className="form__button">
+                <button type="submit" className="form__button" ref={loginBtn}>
                   <div className="button__icon"></div>
                   Login
                 </button>

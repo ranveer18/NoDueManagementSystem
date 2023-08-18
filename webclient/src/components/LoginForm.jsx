@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FaLock } from "react-icons/fa";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +9,11 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const loginBtn = useRef(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    loginBtn.current.disabled = true;
+    console.dir(loginBtn.current);
     try {
       const response = await fetch("/api/v1/login/department", {
         method: "POST",
@@ -25,11 +28,14 @@ const LoginForm = () => {
       const data = response.json();
       if (response.status === 400 || !data) {
         window.alert("invalid credentials");
+        loginBtn.current.disabled = false;
       } else {
+        loginBtn.current.disabled = false;
         navigate("/admin");
       }
     } catch (error) {
       console.log(error);
+      loginBtn.current.disabled = false;
     }
   };
   return (
@@ -96,7 +102,7 @@ const LoginForm = () => {
                 />
               </div>
 
-              <button type="submit" className="form__button">
+              <button type="submit" className="form__button" ref={loginBtn}>
                 <div className="button__icon"></div>
                 Login
               </button>

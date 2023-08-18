@@ -100,11 +100,12 @@ const loginRoute = async (req, res) => {
     }
 
     const userLogin = await studentRegister.findOne({ email: email });
-    // console.log(userLogin);
-    if (!userLogin.isVerified) {
-      return res.status(401).json({ error: "Please verify your email" });
-    }
+    console.log(userLogin);
+    
     if (userLogin) {
+      if (!userLogin.isVerified) {
+        return res.status(401).json({ error: "Please verify your email" });
+      }
       const isMatch = await bcrypt.compare(password, userLogin.password);
       const token = await userLogin.generateAuthToken();
       res.cookie("jwtoken", token, {
@@ -118,6 +119,8 @@ const loginRoute = async (req, res) => {
       } else {
         res.status(201).json({ message: "Login successfully" });
       }
+    }else{
+      res.status(400).json({ error: "Invalid creditial" });
     }
   } catch (error) {
     console.log(error);
