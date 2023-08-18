@@ -3,7 +3,7 @@ import { BiLogOut } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
-const DashboardSidebar = () => {
+const DepartmentSidebar = ({ dep }) => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
 
   return (
@@ -26,33 +26,12 @@ const DashboardSidebar = () => {
         {/* <aside className="dashboard__sidebar"> */}
         <div className="sidebar__btns_container">
           <ul className="dashboard__sidebar_ul">
+            <li>Welcome {dep}</li>
             <NavLink to={`/admin`}>
               <li className="dashboard__sidebar_li">
                 <div className="dashboard__sidebar_btn">
                   Show Student Details
                 </div>
-              </li>
-            </NavLink>
-            <NavLink to={`/admin/department`}>
-              <li className="dashboard__sidebar_li">
-                <div className="dashboard__sidebar_btn">
-                  Show Department Details
-                </div>
-              </li>
-            </NavLink>
-            <NavLink to={`/register`}>
-              <li className="dashboard__sidebar_li">
-                <div className="dashboard__sidebar_btn">Add Student</div>
-              </li>
-            </NavLink>
-            <NavLink to={`/Departmentregister `}>
-              <li className="dashboard__sidebar_li">
-                <div className="dashboard__sidebar_btn">Add Department</div>
-              </li>
-            </NavLink>
-            <NavLink to={`/no-due-applied`}>
-              <li className="dashboard__sidebar_li">
-                <div className="dashboard__sidebar_btn">No Due Clearance</div>
               </li>
             </NavLink>
           </ul>
@@ -74,4 +53,4 @@ const DashboardSidebar = () => {
   );
 };
 
-export default DashboardSidebar;
+export default DepartmentSidebar;

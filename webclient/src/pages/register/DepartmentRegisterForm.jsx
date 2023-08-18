@@ -1,0 +1,193 @@
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {
+  FaUser,
+  FaUserGraduate,
+  FaLock,
+  FaPhoneAlt,
+  FaBookReader,
+} from "react-icons/fa";
+import { IoSchoolSharp } from "react-icons/io5";
+import { BsFillEnvelopeFill } from "react-icons/bs";
+
+const DepartmentRegisterForm = () => {
+  const [inputs, setInputs] = useState({});
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const response = await fetch("/api/v1/register/department", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: inputs.name,
+          email: inputs.email,
+          phone: inputs.phone,
+          department: inputs.department,
+          password: inputs.password,
+          cpassword: inputs.cpassword,
+          employeeId: inputs.employeeId,
+        }),
+      });
+      const data = response.json();
+      console.log(data);
+      if (data.status === 400 || !data) {
+        window.alert("invalid credentials");
+      } else if (data.status === 422) {
+        window.alert("email already exit");
+      } else {
+        window.alert("Success! Please check your email to verify account");
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return (
+    <>
+      <div style={{ height: "100vh", overflow: "scroll" }}>
+        <div className="form__container">
+          <div className="form_header">
+            <NavLink to={`/`}>
+              <div className="form_box__header">
+                <h1 className="form_box__header_h1">Department Register</h1>
+              </div>
+            </NavLink>
+            {/* <NavLink to={""}> */}
+            <div
+              className="form_box__header"
+              style={{ backgroundColor: "#F0F4FA" }}
+            >
+              <h1 className="form_box__header_h1"></h1>
+            </div>
+            {/* </NavLink> */}
+          </div>
+          <div className="form_box">
+            <div className="form_box__body">
+              <form onSubmit={handleSubmit} className="contact__form">
+                <div className="input__container focus">
+                  <div className="icon">
+                    <FaUser />
+                  </div>
+                  <input
+                    required
+                    type="text"
+                    className="input"
+                    name="name"
+                    value={inputs.name || ""}
+                    onChange={handleChange}
+                    placeholder="Full Name"
+                  />
+                </div>
+                <div className="input__container focus">
+                  <div className="icon">
+                    <BsFillEnvelopeFill />
+                  </div>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    value={inputs.email || ""}
+                    onChange={handleChange}
+                    className="input"
+                    placeholder="Email"
+                  />
+                </div>
+                <div className="input__container focus">
+                  <div className="icon">
+                    <FaUserGraduate />
+                  </div>
+                  <input
+                    required
+                    type="input"
+                    name="employeeId"
+                    value={inputs.employeeId || ""}
+                    onChange={handleChange}
+                    className="input"
+                    placeholder="Registered Number"
+                  />
+                </div>
+                <div className="input__container focus">
+                  <div className="icon">
+                    <FaPhoneAlt />
+                  </div>
+                  <input
+                    required
+                    type="input"
+                    name="phone"
+                    value={inputs.phone || ""}
+                    onChange={handleChange}
+                    className="input"
+                    placeholder="Phone Number"
+                  />
+                </div>
+
+                <div className="input__container focus">
+                  <div className="icon">
+                    <IoSchoolSharp />
+                  </div>
+                  <input
+                    required
+                    type="input"
+                    name="department"
+                    value={inputs.department || ""}
+                    onChange={handleChange}
+                    className="input"
+                    placeholder="Department"
+                  />
+                </div>
+                <div className="input__container focus">
+                  <div className="icon">
+                    <FaLock />
+                  </div>
+
+                  <input
+                    required
+                    type="password"
+                    name="password"
+                    value={inputs.password || ""}
+                    onChange={handleChange}
+                    className="input"
+                    placeholder="Password"
+                  />
+                </div>
+                <div className="input__container focus">
+                  <div className="icon">
+                    <FaLock />
+                  </div>
+                  <input
+                    required
+                    type="password"
+                    name="cpassword"
+                    value={inputs.cpassword || ""}
+                    onChange={handleChange}
+                    className="input"
+                    placeholder="Confirm Password"
+                  />
+                </div>
+
+                <button type="submit" className="form__button">
+                  <div className="button__icon"></div>
+                  Register
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default DepartmentRegisterForm;

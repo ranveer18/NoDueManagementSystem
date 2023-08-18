@@ -14,6 +14,8 @@ import ViewDue from "./pages/dashboard/Student dashboard/ViewDue";
 import ApplyNoDue from "./pages/dashboard/Student dashboard/ApplyNoDue";
 import MakePayment from "./pages/dashboard/Student dashboard/MakePayment";
 import NoDueApplied from "./components/NoDueApplied";
+import DepartmentRegister from "./pages/register/DepartmentRegister";
+import DepartmentDetails from "./pages/dashboard/Admin Dashboard/DepartmentDetails";
 const App = () => {
   return (
     <>
@@ -22,7 +24,11 @@ const App = () => {
           <Route path="/" element={<AdminLogin />}></Route>
           <Route path="/studentLogin" element={<StudentLogin />}></Route>
           <Route path="/register" element={<StudentRegister />}></Route>
-          <Route path="/user/verify-email" element={<VerifyEmail />}></Route>
+          <Route
+            path="/Departmentregister"
+            element={<DepartmentRegister />}
+          ></Route>
+          <Route path="/admin/verify-email" element={<VerifyEmail />}></Route>
           <Route path="/no-due-applied" element={<NoDueApplied />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
           <Route path="/student" element={<StudentProfile />}></Route>
@@ -30,6 +36,10 @@ const App = () => {
           <Route path="/student/applyNoDue" element={<ApplyNoDue />}></Route>
           <Route path="/student/makePayment" element={<MakePayment />}></Route>
           <Route path="/admin" element={<AdminDashboard />}></Route>
+          <Route
+            path="/admin/department"
+            element={<DepartmentDetails />}
+          ></Route>
           <Route
             path="/admin/studentedit/:id"
             element={<EditStudent />}

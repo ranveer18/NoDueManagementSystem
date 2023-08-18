@@ -40,7 +40,8 @@ const departmentRegisterRoute = async (req, res) => {
       cpassword,
       verificationToken,
     });
-    const origin = "http://localhost:5050";
+    // const origin = "http://localhost:5050";
+    const origin = "http://localhost:3000";
     await sendVerificationEmail({
       name: AdminstrationRegisterData.name,
       email: AdminstrationRegisterData.email,
@@ -59,6 +60,7 @@ const departmentRegisterRoute = async (req, res) => {
 const verifyEmail = async (req, res) => {
   try {
     const { verificationToken, email } = req.body;
+    console.log(verificationToken, email);
     const AdminstrationRegisterData = await departmentRegister.findOne({
       email,
     });

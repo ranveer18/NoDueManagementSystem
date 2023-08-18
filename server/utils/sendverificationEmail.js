@@ -10,8 +10,8 @@ const sendEmail = async ({ to, subject, html }) => {
     host: "smtp.ethereal.email",
     port: 587,
     auth: {
-      user: "herman.cremin@ethereal.email",
-      pass: "21YFpSHuz3C32ebjV6",
+      user: "adam30@ethereal.email",
+      pass: "2quuUZDUdVRR8rgFcH",
     },
   });
 
@@ -29,7 +29,7 @@ const sendVerificationEmail = async ({
   verificationToken,
   origin,
 }) => {
-  const verifyEmail = `${origin}/user/verify-email?token=${verificationToken}&email=${email}`;
+  const verifyEmail = `${origin}/admin/verify-email?token=${verificationToken}&email=${email}`;
 
   const message = `<p>Please confirm your email by clicking on the following link : 
   <a href="${verifyEmail}">Verify Email</a> </p>`;
