@@ -82,6 +82,6 @@ The No Due Management System is open source and released under the [MIT License]
 
 ## Contact
 
-If you have any questions or suggestions regarding the No Due Management System, please feel free to contact us at [email@example.com](mailto:email@example.com).
+If you have any questions or suggestions regarding the No Due Management System, please feel free to contact us at https://ranveer18.github.io/Ranveer/.
 
 Thank you for using the No Due Management System!
